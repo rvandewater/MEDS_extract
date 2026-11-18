@@ -225,9 +225,10 @@ class RemoteFile:
             mode. Has no effect when ``unarchive`` is ``None``.
         archive_subdir: Optional folder of the archive, as a path from the archive's
             root, whose contents are extracted on their own, e.g.
-            ``"mimic-iv-demo-omop-0.9/1_omop_data_csv"`` for a PhysioNet ``get-zip``
-            bundle: its ``person.csv`` lands next to the archive, and the bundle's other
-            folders are not kept. Forward slashes, relative, no ``..``; ``./`` and
+            ``"mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv"``
+            for the MIMIC-IV OMOP demo's PhysioNet ``get-zip`` bundle: its
+            ``person.csv`` lands next to the archive, and the bundle's other folders are
+            not kept. Forward slashes, relative, no ``..``; ``./`` and
             trailing slashes are dropped. Requires ``unarchive``; ignored for rows where
             ``"auto"`` finds no archive extension.
 

@@ -38,12 +38,13 @@ if TYPE_CHECKING:
 
 # The MIMIC-IV OMOP demo ``get-zip`` layout, in miniature: tables under a versioned
 # wrapper plus sibling folders the ETL never reads.
+_WRAP = "mimic-iv-demo-data-in-the-omop-common-data-model-0.9"  # the real bundle's top folder
 OMOP_BUNDLE = {
-    "mimic-iv-demo-omop-0.9/1_omop_data_csv/person.csv": "person_id\n1\n",
-    "mimic-iv-demo-omop-0.9/1_omop_data_csv/visit_occurrence.csv": "visit_occurrence_id\n2\n",
-    "mimic-iv-demo-omop-0.9/2_achilles_json/report.json": "{}",
-    "mimic-iv-demo-omop-0.9/3_data_quality_dashboard_files/index.html": "<html/>",
-    "mimic-iv-demo-omop-0.9/LICENSE.txt": "license",
+    f"{_WRAP}/1_omop_data_csv/person.csv": "person_id\n1\n",
+    f"{_WRAP}/1_omop_data_csv/visit_occurrence.csv": "visit_occurrence_id\n2\n",
+    f"{_WRAP}/2_achilles_json/report.json": "{}",
+    f"{_WRAP}/3_data_quality_dashboard_files/index.html": "<html/>",
+    f"{_WRAP}/LICENSE.txt": "license",
 }
 
 
@@ -120,7 +121,7 @@ def _fail_after_extracting(exc: BaseException):
 # archive_subdir
 # --------------------------------------------------------------------------------------
 
-SUBDIR = "mimic-iv-demo-omop-0.9/1_omop_data_csv"
+SUBDIR = f"{_WRAP}/1_omop_data_csv"
 
 
 def test_archive_subdir_physionet_get_zip_layout(tmp_path: Path):

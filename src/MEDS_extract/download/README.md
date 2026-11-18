@@ -286,8 +286,9 @@ the mode (`auto` drops the archive after extraction, explicit formats keep it);
 #### Extracting one folder: `archive_subdir`
 
 `archive_subdir:` keeps only the contents of one folder of the archive, given as a
-path from the archive's root. For a PhysioNet `get-zip` bundle, which wraps everything
-in `<project>-<version>/`, that turns the MIMIC-IV OMOP demo into flat tables:
+path from the archive's root. A PhysioNet `get-zip` bundle wraps everything in one top
+folder named after the project's title and version, not its URL (`unzip -l` shows it).
+For the MIMIC-IV OMOP demo, that keeps only the tables:
 
 ```yaml
 sources:
@@ -299,7 +300,8 @@ sources:
           sha256: <pinned digest>
           unarchive: zip # the URL has no .zip suffix, so "auto" would not fire
           cleanup_archive: true
-          archive_subdir: mimic-iv-demo-omop-0.9/1_omop_data_csv # -> person.csv, ...
+          # -> person.csv, visit_occurrence.csv, ... next to the archive
+          archive_subdir: mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv
 ```
 
 A path that is not a folder of the archive is an error. `archive_subdir` is accepted per

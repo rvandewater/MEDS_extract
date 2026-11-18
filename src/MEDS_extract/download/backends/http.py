@@ -603,10 +603,10 @@ class HTTPSource(Source):
             ...     "url": "https://physionet.org/content/mimic-iv-demo-omop/get-zip/0.9/",
             ...     "rel_path": "mimic-iv-demo-omop-0.9.zip",
             ...     "unarchive": "zip",
-            ...     "archive_subdir": "mimic-iv-demo-omop-0.9/1_omop_data_csv",
+            ...     "archive_subdir": "mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv",
             ... })
             >>> r.unarchive, r.archive_subdir
-            ('zip', 'mimic-iv-demo-omop-0.9/1_omop_data_csv')
+            ('zip', 'mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv')
 
             Raises on missing ``url``, unknown keys, malformed digests, or bad type.
             The dict-shaped errors echo key names only — entry values may carry
